@@ -32,9 +32,15 @@ Technical Test : PJPT - Senopati
 
 ### Integration
 
-[] SSO Oauth integration
-
 ### Guide
+
+#### Run in stackblitz
+
+```bash
+ yarn stackdev / npm run stackdev
+```
+
+#### User credentials
 
 ```bash
     //Login with admin credentials
@@ -46,7 +52,7 @@ Technical Test : PJPT - Senopati
     employee : employee
 ```
 
-#### UI Guide
+### UI Guide
 
 - Guide to Setup Dark Theme
 - Guide to Setup Primary Color
