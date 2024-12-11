@@ -1,8 +1,12 @@
 # The Tailwind Web Starter with Nuxt
 
+Visit <a href="https://github.com/triputra-ard/tri-boilerplate-nuxt">https://github.com/triputra-ard/tri-boilerplate-nuxt</a>
+
 ## Description
 
 Project boilerplate for web applications using Nuxt.js
+
+Technical Test : PJPT - Senopati
 
 ## Dependencies
 

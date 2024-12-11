@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
-import * as icons from "lucide-vue-next";
+import * as lucideIcons from "lucide-vue-next";
 
 const props = defineProps({
   class: String,
@@ -17,21 +17,36 @@ const props = defineProps({
   strokeWidth: Number,
   defaultClass: String,
   fontControlled: { type: Boolean, default: false },
+  library: {
+    type: String,
+    default: "lucide", // Options: "lucide", "mdi", "nuxt"
+  },
 });
 
 const icon = computed(() => {
-  const iconLibrary = icons[props.name];
-  if (iconLibrary) {
-    return iconLibrary;
+  if (props.library === "lucide") {
+    const lucideIcon = lucideIcons[props.name];
+    if (lucideIcon) {
+      return lucideIcon;
+    }
+  } else if (props.library === "mdi") {
+    return () => {
+      const mdiClass = `mdi mdi-${props.name}`;
+      return `
+        <i
+          class={cn(mdiClass, props.class)}
+          style={"font-size: ${props.size}px; color: ${props.color};"}
+        />
+      `;
+    };
+  } else if (props.library === "nuxt") {
+    defineAsyncComponent(() => {
+      return import(`@/assets/icons/${props.name}.svg`);
+    });
   }
-  return defineAsyncComponent(() => {
-    const svgPath = `../../assets/icon/${props.name}.svg`;
-    return import(svgPath + "?component");
-  });
-});
 
-onMounted(() => {
-  console.log(props.name);
+  console.warn(`Icon not found in library: ${props.library}`);
+  return null;
 });
 </script>
 

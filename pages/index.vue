@@ -19,7 +19,7 @@
           </li>
         </ul>
         <br />
-        <logica-button @click="clickMe">Click Me !</logica-button>
+        <vue-button @click="clickMe">Click Me !</vue-button>
 
         <p class="mt-[2rem]">
           Using server API to fetch the data : <b>{{ message }}</b>
@@ -43,10 +43,6 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from "@/stores";
-
-const { name } = useAppStore();
-
 const message = ref("Hello World");
 const list = ref([
   {
