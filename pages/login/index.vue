@@ -1,8 +1,8 @@
 <template>
-  <div
-    class="flex flex-row flex-wrap justify-center p-[1rem] lg:items-center lg:p-[0] h-[100vh]"
-  >
-    <u-card class="border-[1px] border-gray-200 w-[30rem] lg:w-[50rem]">
+  <div class="flex flex-row flex-wrap justify-center items-center h-[100vh]">
+    <u-card
+      class="border-[1px] border-gray-200 w-[30rem] h-[20rem] lg:w-[50rem] lg:h-[100%]"
+    >
       <template #header>
         <h2 class="text-3xl font-bold text-center">Login</h2>
       </template>
@@ -13,9 +13,11 @@
         <u-form-group label="Password" name="password">
           <u-input v-model="dataLogin.password" type="password"></u-input>
         </u-form-group>
-        <u-button type="submit" role="button" color="primary" block
-          >Login</u-button
-        >
+        <div class="mt-[1rem]">
+          <u-button type="submit" role="button" color="primary" block
+            >Login</u-button
+          >
+        </div>
       </u-form>
     </u-card>
   </div>
@@ -37,7 +39,7 @@ const schema = yup.object({
     .max(50, "Password must not exceed 50 characters"),
 });
 
-const dataLogin = ref({
+const dataLogin: InfAuthLogin = ref({
   username: null,
   password: null,
 });

@@ -46,10 +46,10 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/ui",
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
     "shadcn-nuxt",
     "@pinia/nuxt",
-    "@nuxtjs/color-mode",
-    "nuxt-svgo",
+    "pinia-plugin-persistedstate/nuxt",
   ],
 
   vite: {

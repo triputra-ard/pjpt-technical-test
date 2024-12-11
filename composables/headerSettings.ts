@@ -1,24 +1,33 @@
+type MethodType =
+  | "GET"
+  | "HEAD"
+  | "PATCH"
+  | "POST"
+  | "PUT"
+  | "DELETE"
+  | "CONNECT"
+  | "OPTIONS"
+  | "TRACE"
+  | "get"
+  | "head"
+  | "patch"
+  | "post"
+  | "put"
+  | "delete"
+  | "connect"
+  | "options"
+  | "trace"
+  | undefined;
 export default function (
-  methods: String,
-  enviroments: String,
-  config: Object,
-  serverEvent
+  methods: MethodType,
+  config?: object,
+  serverEvent?: any
 ) {
-  if (enviroments == "development") {
-    return {
-      method: methods,
-      headers: {
-        Authorization: `Basic ${btoa(
-          config.server.localApiKey + ":" + config.server.localApiSecret
-        )}`,
-      },
-    };
-  } else if (enviroments == "production") {
-    return {
-      method: methods,
-      headers: {
-        ["Cookie"]: `sid=${atob(parseCookies(serverEvent).token)}`,
-      },
-    };
-  }
+  return {
+    method: methods,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
 }
