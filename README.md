@@ -16,6 +16,7 @@ Technical Test : PJPT - Senopati
 
 ### UI
 
+- Nuxt UI
 - Shadcn-vue
 - Radix
 - Tailwindcss
@@ -34,6 +35,16 @@ Technical Test : PJPT - Senopati
 [] SSO Oauth integration
 
 ### Guide
+
+```bash
+    //Login with admin credentials
+    admin : admin
+```
+
+```bash
+    //Login with employee credentials
+    employee : employee
+```
 
 #### UI Guide
 
