@@ -1,7 +1,5 @@
 export const useAuth = () => {
-  const user = ref<User | null>(null);
-  const isAuthenticated = computed(() => !!user.value);
-  const userRole = computed(() => user.value?.role || null);
+  const userData = useUserStore();
 
   const login = async (username: string, password: string) => {
     try {
@@ -9,8 +7,8 @@ export const useAuth = () => {
         method: "POST",
         body: { username, password },
       });
-
-      user.value = response as User;
+      userData.isAuthenticated = true;
+      userData.user = response.data as InfAuthUser;
       return true;
     } catch (error) {
       if (error.statusCode === 401) {
@@ -21,13 +19,12 @@ export const useAuth = () => {
   };
 
   const logout = () => {
-    user.value = null;
+    userData.isAuthenticated = false;
+    userData.user = {};
+    navigateTo("/login");
   };
 
   return {
-    user,
-    isAuthenticated,
-    userRole,
     login,
     logout,
   };

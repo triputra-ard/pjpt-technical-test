@@ -30,15 +30,18 @@ const icon = computed(() => {
       return lucideIcon;
     }
   } else if (props.library === "mdi") {
-    return () => {
-      const mdiClass = `mdi mdi-${props.name}`;
-      return `
-        <i
-          class={cn(mdiClass, props.class)}
-          style={"font-size: ${props.size}px; color: ${props.color};"}
-        />
-      `;
-    };
+    return defineComponent({
+      render() {
+        const mdiClass = `mdi mdi-${props.name}`;
+        return h("i", {
+          class: cn(mdiClass, props.class),
+          style: {
+            fontSize: `${props.size}px`,
+            color: props.color,
+          },
+        });
+      },
+    });
   } else if (props.library === "nuxt") {
     defineAsyncComponent(() => {
       return import(`@/assets/icons/${props.name}.svg`);

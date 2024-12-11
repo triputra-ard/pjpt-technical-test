@@ -1,19 +1,26 @@
+import { defineStore } from "pinia";
 const state = () => ({
-  user: null,
+  user: {},
+  isAuthenticated: false,
 });
 
-const getters = {};
+const getters = {
+  getUser: (state) => state.user,
+  getUserRole: (state) => {
+    return state.user.role || null;
+  },
+};
 
 const actions: any = {};
 
-const persisted = {
-  pick: ["user"],
-  storage: piniaPluginPersistedstate.localStorage(),
+const persist = {
+  pick: ["user", "isAuthenticated"],
+  // storage: piniaPluginPersistedstate.localStorage(),
 };
 
 export const useUserStore = defineStore("user-store", {
   state,
   getters,
   actions,
-  persisted,
+  persist,
 });

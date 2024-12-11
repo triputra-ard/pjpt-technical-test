@@ -19,7 +19,7 @@
           </li>
         </ul>
         <br />
-        <vue-button @click="clickMe">Click Me !</vue-button>
+        <u-button @click="clickMe">Click Me !</u-button>
 
         <p class="mt-[2rem]">
           Using server API to fetch the data : <b>{{ message }}</b>
@@ -43,8 +43,12 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: "Home - Employee",
+});
 definePageMeta({
   layout: "default",
+  middleware: ["auth"],
 });
 const message = ref("Hello World");
 const list = ref([
@@ -52,13 +56,16 @@ const list = ref([
     name: "Nuxt JS",
   },
   {
-    name: "Shadcdn",
+    name: "Nuxt Ui",
   },
   {
     name: "Tailwind",
   },
   {
     name: "Lucide Icon",
+  },
+  {
+    name: "Material Design Icon",
   },
   {
     name: "Pinia",

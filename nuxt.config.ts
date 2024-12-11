@@ -61,7 +61,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  plugins: ["@/plugins/v-toast.client.ts"],
   pinia: {
     storesDirs: [
       //Pinia stores

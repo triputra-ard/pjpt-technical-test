@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed top-0 z-[1020]">Navbar</nav>
+  <navigation-bar></navigation-bar>
   <main>
     <slot></slot>
   </main>
