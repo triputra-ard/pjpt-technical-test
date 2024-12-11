@@ -26,6 +26,10 @@
 import * as yup from "yup";
 import { Form, Field } from "vee-validate";
 
+definePageMeta({
+  layout: "blanks",
+});
+
 const schema = yup.object({
   username: yup
     .string()

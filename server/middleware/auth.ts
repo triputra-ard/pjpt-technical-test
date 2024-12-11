@@ -2,7 +2,7 @@ import { UserRepository } from "~/server/repositories/user";
 
 export default defineEventHandler(async (event) => {
   const { req } = event.node;
-  const auth = useAuth();
+  // const auth = useAuth();
   const userRepo = new UserRepository();
 
   // Protect /admin route

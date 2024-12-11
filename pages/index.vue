@@ -43,6 +43,9 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: "default",
+});
 const message = ref("Hello World");
 const list = ref([
   {

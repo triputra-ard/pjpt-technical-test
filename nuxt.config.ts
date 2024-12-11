@@ -98,6 +98,22 @@ export default defineNuxtConfig({
     //   iframeUrl: process.env.APP_URL_IFRAME,
     // },
   },
+  imports: {
+    dirs: [
+      // Scan top-level modules composables
+      "composables",
+      // ... or scan modules nested one level deep with a specific name and file extension
+      "composables/*/index.{ts,js,mjs,mts}",
+      // ... or scan all modules within given directory
+      "composables/**",
+      // Scan top-level modules utils
+      "utils",
+      // ... or scan modules nested one level deep with a specific name and file extension
+      "utils/*/index.{ts,js,mjs,mts}",
+      // ... or scan all modules within given directory
+      "utils/**",
+    ],
+  },
 
   compatibilityDate: "2024-07-22",
 });
