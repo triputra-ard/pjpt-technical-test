@@ -15,7 +15,9 @@ export default defineNuxtRouteMiddleware((to) => {
 
   // Redirect to login if not authenticated
   if (!auth.isAuthenticated) {
-    $toast.error("You need permission to view this page");
+    $toast.error("You need permission to view this page", {
+      onDismiss: () => navigateTo("/login"),
+    });
     return navigateTo("/login");
   }
 

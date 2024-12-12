@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-center mt-20 container">
+  <u-container class="flex flex-wrap justify-center mt-20">
     <card class="w-full h-auto">
       <card-header>
         <card-title>Hello World</card-title>
@@ -39,7 +39,7 @@
       </card-content>
       <card-footer> Thank You </card-footer>
     </card>
-  </div>
+  </u-container>
 </template>
 
 <script setup lang="ts">
